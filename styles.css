@@ -1,0 +1,398 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background Slider */
+.hero-slider {
+  position: absolute;
+  inset: 0;
+}
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+.slide.active {
+  opacity: 1;
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(50, 48, 48, 0.6);
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  background: rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  max-width: 600px;
+  animation: fadeIn 2s ease;
+}
+.glass-card h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.glass-card p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #f8f9fa;
+}
+
+/* Taxi Icon Animation */
+.taxi-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  animation: bounce 2s infinite;
+}
+
+/* CTA Button */
+.btn-cta {
+  display: inline-block;
+  background: #ffc107;
+  color: #000;
+  font-weight: bold;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 0 15px rgba(255,193,7,0.6);
+}
+.btn-cta:hover {
+  background: #ffdb4d;
+  transform: scale(1.05);
+}
+
+/* Scroll Down Indicator */
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  font-size: 2rem;
+  animation: bounce 2s infinite;
+  opacity: 0.7;
+}
+
+/* Animations */
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Floating Shapes */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.4;
+  z-index: 0;
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+  width: 200px;
+  height: 200px;
+  background: #0d6efd;
+  top: 10%;
+  left: -50px;
+}
+
+.shape-2 {
+  width: 300px;
+  height: 300px;
+  background: #198754;
+  bottom: -100px;
+  right: -80px;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+
+  .navbar .nav-link {
+    transition: color 0.3s ease;
+  }
+  .navbar .nav-link:hover {
+    color: #198754;
+  }
+
+  .transition-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .transition-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+
+
+  /* Section Background */
+.packages-section {
+  background: linear-gradient(135deg, #f8fdf9, #eefaf4);
+  border-radius: 30px 30px 0 0;
+}
+
+/* Card Styling */
+.package-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.package-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Image Wrapper */
+.package-card .img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.package-card .img-wrapper img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.package-card:hover .img-wrapper img {
+  transform: scale(1.1);
+}
+
+/* Price Tag */
+.price-tag {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: #198754;
+  color: #fff;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  animation: pulse 2s infinite;
+}
+
+/* Content */
+.package-card .content {
+  padding: 20px;
+}
+.package-card .content h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.package-card .content p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Button */
+.package-card .btn {
+  border-radius: 50px;
+  transition: 0.3s;
+}
+.package-card .btn:hover {
+  background-color: #28a745;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.9; }
+}
+
+
+/* Cards */
+.card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+.card img {
+  height: 200px;
+  object-fit: cover;
+}
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #198754;
+}
+
+/* Booking Card */
+.booking-box {
+  background: #ffffff;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+.booking-box:hover {
+  transform: translateY(-5px);
+}
+
+/* Inputs */
+.stylish-input {
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+.stylish-input:focus {
+  border-color: #198754;
+  box-shadow: 0 0 10px rgba(25,135,84,0.3);
+}
+
+/* Confirm Button */
+.confirm-btn {
+  background: #198754;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.confirm-btn:hover {
+  background: #28a745;
+  box-shadow: 0 0 12px rgba(40,167,69,0.5);
+  transform: scale(1.03);
+}
+
+
+/* Section Background */
+.reviews-section {
+  background: linear-gradient(135deg, #f8fdf9, #eefaf4);
+  border-radius: 30px 30px 0 0;
+}
+
+/* Star Rating */
+.star-rating .star {
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s, transform 0.2s;
+}
+.star-rating .star:hover,
+.star-rating .star.active {
+  color: #ffc107;
+  transform: scale(1.2);
+}
+
+/* Review Form */
+.review-form {
+  border-radius: 15px;
+  background: #fff;
+  transition: transform 0.3s;
+}
+.review-form:hover {
+  transform: translateY(-5px);
+}
+
+/* Review Card */
+.review-card {
+  border-radius: 15px;
+  background: #fff;
+  transition: transform 0.3s;
+}
+.review-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Avatar */
+.avatar {
+  width: 48px;
+  height: 48px;
+  font-weight: 600;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* Footer */
+  .footer {
+    background: #1e1e21; /* deep navy */
+  }
+  .footer .social-link {
+    color: #fff;
+    transition: 0.3s;
+  }
+  .footer .social-link:hover {
+    color: #0dcaf0; /* bootstrap info color */
+    transform: scale(1.2);
+  }
+  .footer ul li {
+    margin-bottom: 6px;
+  }
+
+/* About Section Styling */
+.about-section {
+  background: linear-gradient(135deg, #f8f9fa, #e9f5ef);
+  border-radius: 0 0 50px 50px;
+}
+
+/* Floating Taxi Image */
+.floating-img {
+  animation: floatY 3s ease-in-out infinite;
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Feature Cards */
+.feature-card {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.feature-card i {
+  display: block;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.feature-card:hover i {
+  transform: scale(1.2);
+  color: #198754;
+}

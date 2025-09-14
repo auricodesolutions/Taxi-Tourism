@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sigiriya Tour Package</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; }
+
+    /* Hero Section */
+    .hero-small {
+      position: relative;
+      background: url('assets/sigiri.jpg') no-repeat center center/cover;
+      color: white;
+      padding: 120px 20px;
+      text-align: center;
+    }
+    .hero-small::before {
+      content: "";
+      position: absolute; inset:0;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero-small h1, .hero-small p {
+      position: relative; z-index: 2;
+      animation: fadeInDown 1.2s ease-in-out;
+    }
+    .home-btn {
+      position: absolute; top: 20px; left: 20px;
+      padding: 8px 20px; border: 2px solid #fff;
+      color: #fff; text-decoration: none; font-size: 1rem;
+      font-weight: 600; border-radius: 25px;
+      background: rgba(0,0,0,0.3); z-index: 3;
+      transition: all 0.3s;
+    }
+    .home-btn:hover { background:#fff; color:#000; }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {opacity:0; transform: translateY(-40px);}
+      to {opacity:1; transform: translateY(0);}
+    }
+    .fade-section { opacity:0; transform: translateY(30px); transition: all 0.8s; }
+    .fade-section.visible { opacity:1; transform: translateY(0); }
+
+    /* Place cards */
+    .place-card img {
+      height: 220px; object-fit: cover;
+      border-radius: 12px; transition: transform 0.4s;
+    }
+    .place-card img:hover { transform: scale(1.05); }
+
+    /* Vehicle cards */
+    .vehicle-card {
+      text-align: center; border-radius: 12px;
+      padding: 15px; background: #fff;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .vehicle-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .vehicle-card img {
+      height: 160px; object-fit: cover; border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .vehicle-card:hover img { transform: scale(1.05); }
+
+    /* Filter buttons */
+    .filter-btn { border-radius: 25px; margin: 5px; padding: 8px 18px; }
+    .filter-btn.active, .filter-btn:hover { background:#198754; color:#fff; }
+
+    /* Booking Summary */
+    #bookingSummary {
+      display:none; background:#fff; border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+      padding:25px; margin-top:40px;
+    }
+    #bookingSummary h4 { color:#198754; font-weight:bold; }
+    #bookingSummary .note { margin-top:12px; font-size:0.9rem; color:#555; text-align:center; }
+  </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero-small">
+  <a href="index.html" class="home-btn">🏠 Home</a>
+  <h1 class="fw-bold">Sigiriya Tour</h1>
+  <p>2 Days | Rs. 27,000</p>
+</section>
+
+<!-- Package Details -->
+<section class="container py-5 fade-section">
+  <h2 class="mb-3">About This Tour</h2>
+  <p>
+    Embark on a 2-day journey to the iconic <strong>Sigiriya Rock Fortress</strong>, 
+    a UNESCO World Heritage Site, and the historic <strong>Dambulla Cave Temples</strong>.
+    This adventure includes cultural experiences, breathtaking landscapes, and 
+    a glimpse into Sri Lanka’s rich history.
+  </p>
+
+  <!-- Places -->
+  <h3 class="mt-4">Places Included</h3>
+  <div class="row g-4 mt-2">
+    <div class="col-md-4 place-card"><img src="assets/packages/Sigiriya Rock.jpg" class="img-fluid shadow" alt="Sigiriya Rock"></div>
+    <div class="col-md-4 place-card"><img src="assets/packages/dambulla.jpg" class="img-fluid shadow" alt="Dambulla Caves"></div>
+    <div class="col-md-4 place-card"><img src="assets/packages/village-tour.jpg" class="img-fluid shadow" alt="Village Tour"></div>
+  </div>
+
+  <!-- Vehicle Selection -->
+  <h3 class="mt-5 text-center">Select Your Vehicle</h3>
+
+  <!-- Filters -->
+  <div class="text-center mb-4">
+    <button class="btn btn-outline-primary filter-btn active" data-filter="all">All</button>
+    <button class="btn btn-outline-primary filter-btn" data-filter="compact">Compact Car</button>
+    <button class="btn btn-outline-primary filter-btn" data-filter="sedan">Sedan</button>
+    <button class="btn btn-outline-primary filter-btn" data-filter="van">Van</button>
+    <button class="btn btn-outline-primary filter-btn" data-filter="bus">Bus</button>
+  </div>
+
+       <!-- Vehicle List -->
+    <div class="row g-4 mt-2" id="vehicleList">
+
+      <!-- Default visible vehicles -->
+      <div class="col-md-4 vehicle-item" data-category="compact" data-price="8000">
+        <div class="vehicle-card">
+          <img src="assets/packages/compact car1.png" class="img-fluid" alt="Compact Car">
+          <p>Compact Car</p>
+          <button class="btn btn-success w-100 choose-btn" data-vehicle="Compact Car" data-price="8000">Choose </button>
+        </div>
+      </div>
+
+      <div class="col-md-4 vehicle-item" data-category="sedan" data-price="12000">
+        <div class="vehicle-card">
+          <img src="assets/packages/Sadan-1-.jpg" class="img-fluid" alt="Sedan">
+          <p>Sedan </p>
+          <button class="btn btn-success w-100 choose-btn" data-vehicle="Sedan" data-price="12000">Choose</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 vehicle-item" data-category="van" data-price="15000">
+        <div class="vehicle-card">
+          <img src="assets/packages/van.jpeg" class="img-fluid" alt="Van">
+          <p>Van</p>
+          <button class="btn btn-success w-100 choose-btn" data-vehicle="Van" data-price="15000">Choose </button>
+        </div>
+      </div>
+
+      <div class="col-md-4 vehicle-item" data-category="bus" data-price="25000">
+        <div class="vehicle-card">
+          <img src="assets/packages/bus.png" class="img-fluid" alt="Bus">
+          <p>Tourist Bus </p>
+          <button class="btn btn-success w-100 choose-btn" data-vehicle="Bus" data-price="25000">Choose</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 vehicle-item " data-category="compact" data-price="10000">
+        <div class="vehicle-card">
+          <img src="assets/packages/compact car premium.jpg" class="img-fluid" alt="Compact Car Premium">
+          <p>Compact Car Premium</p>
+          <button class="btn btn-success w-100 choose-btn" data-vehicle="Compact Car Premium" data-price="10000">Choose</button>
+        </div>
+      </div>
+
+       <div class="col-md-4 vehicle-item " data-category="sedan" data-price="18000">
+        <div class="vehicle-card">
+          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d" class="img-fluid" alt="Luxury Sedan">
+          <p>Luxury Sedan</p>
+          <button class="btn btn-success w-100 choose-btn" data-vehicle="Luxury Sedan" data-price="18000">Choose</button>
+        </div>
+      </div>
+
+      <!-- Extra hidden vehicles -->
+      <div class="col-md-4 vehicle-item extra-vehicle d-none" data-category="van" data-price="14000">
+        <div class="vehicle-card">
+          <img src="assets/packages/minivan.jpg" class="img-fluid" alt="Mini Van">
+          <p>Mini Van </p>
+          <button class="btn btn-success w-100 choose-btn" data-vehicle="Mini Van" data-price="14000">Choose</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 vehicle-item extra-vehicle d-none" data-category="bus" data-price="20000">
+        <div class="vehicle-card">
+          <img src="assets/packages/mini bus.jpg" class="img-fluid" alt="Mini Bus">
+          <p>Mini Bus</p>
+          <button class="btn btn-success w-100 choose-btn" data-vehicle="Mini Bus" data-price="20000">Choose</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 vehicle-item extra-vehicle d-none" data-category="compact" data-price="11000">
+        <div class="vehicle-card">
+          <img src="assets/packages/Hybrid Compact Car.png" class="img-fluid" alt="Hybrid Compact Car">
+          <p>Hybrid Compact Car</p>
+          <button class="btn btn-success w-100 choose-btn" data-vehicle="Hybrid Compact Car" data-price="11000">Choose</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 vehicle-item extra-vehicle d-none" data-category="sedan" data-price="20000">
+        <div class="vehicle-card">
+          <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf" class="img-fluid" alt="Executive Sedan">
+          <p>Executive Sedan</p>
+          <button class="btn btn-success w-100 choose-btn" data-vehicle="Executive Sedan" data-price="20000">Choose</button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- View More Button -->
+    <div class="text-center mt-4">
+      <button class="btn btn-outline-success" id="viewMoreBtn">View More Vehicles</button>
+    </div>
+
+    <!-- Booking Summary -->
+    <div id="bookingSummary">
+      <h4>Booking Summary</h4>
+      <p><strong>Package:</strong>Kandy Tour (2 Days)</p>
+      <p id="selectedVehicle"></p>
+      <p id="vehiclePrice"></p>
+      <p id="totalPrice"></p>
+      <p><strong>Intro:</strong> You selected a vehicle for the Kandy Tour. The journey includes hotel pickup, sightseeing, and drop-off.</p>
+      <p class="note">For special requests or custom tours, feel free to contact us</a> anytime.</p>
+
+      
+      <div class="d-flex gap-3 mt-3">
+        <button class="btn btn-primary flex-fill">Proceed to Booking</button>
+        <a href="contactUs.html" class="btn btn-outline-success flex-fill">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Fade-in effect
+    const faders = document.querySelectorAll('.fade-section');
+    window.addEventListener('scroll', () => {
+      faders.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    });
+    window.dispatchEvent(new Event('scroll'));
+
+    // Filter system
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const vehicleItems = document.querySelectorAll('.vehicle-item');
+    const viewMoreBtn = document.getElementById('viewMoreBtn');
+    const bookingSummary = document.getElementById('bookingSummary');
+    const selectedVehicle = document.getElementById('selectedVehicle');
+    const vehiclePrice = document.getElementById('vehiclePrice');
+    const totalPrice = document.getElementById('totalPrice');
+    const basePrice = 25000; // base package price
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+
+        vehicleItems.forEach(item => {
+          if (filter === "all" || item.getAttribute('data-category') === filter) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+
+        if (filter === "all") {
+          viewMoreBtn.style.display = "inline-block";
+          document.querySelectorAll('.extra-vehicle').forEach(v => v.classList.add('d-none'));
+          viewMoreBtn.innerText = "View More Vehicles";
+        } else {
+          viewMoreBtn.style.display = "none";
+        }
+      });
+    });
+
+    // View More toggle
+    viewMoreBtn.addEventListener('click', function(){
+      const hiddenVehicles = document.querySelectorAll('.extra-vehicle');
+      hiddenVehicles.forEach(v => v.classList.toggle('d-none'));
+      this.innerText = this.innerText === "View More Vehicles" ? "View Less Vehicles" : "View More Vehicles";
+    });
+
+    // Choose button logic
+    document.querySelectorAll('.choose-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const vehicle = btn.dataset.vehicle;
+        const price = parseInt(btn.dataset.price);
+
+        selectedVehicle.innerHTML = `<strong>Vehicle:</strong> ${vehicle}`;
+        vehiclePrice.innerHTML = `<strong>Vehicle Price:</strong> Rs. ${price.toLocaleString()}`;
+        totalPrice.innerHTML = `<strong>Total Price:</strong> Rs. ${(basePrice + price).toLocaleString()}`;
+
+        bookingSummary.style.display = "block";
+        bookingSummary.scrollIntoView({behavior: "smooth"});
+      });
+    });
+  </script>
+</body>
+</html>
